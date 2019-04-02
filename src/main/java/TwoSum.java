@@ -13,11 +13,12 @@ public class TwoSum {
     }
 
     public static int[] twoSum(int[] in, int target){
+        // val - i
         Map<Integer, Integer> map = new HashMap<>();
         for (int i=0 ;i < in.length; i++){
             int diff =  target - in[i];
             if (map.containsKey(diff)){
-                return new int[]{i, map.get(diff)};
+                return new int[]{in[i], in[map.get(diff)]};
             }
             map.put(in[i], i);
 
