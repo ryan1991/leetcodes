@@ -1,6 +1,8 @@
 package adt.bst;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class AVLTree<K extends Comparable<K>, V> {
 
@@ -47,6 +49,25 @@ public class AVLTree<K extends Comparable<K>, V> {
 
         return node.height;
 
+    }
+    public boolean contains(K e){
+
+        return contains(root, e);
+    }
+
+
+    private boolean contains(Node node, K e){
+        if (node == null)
+            return false;
+
+        int compareResult = e.compareTo(node.key);
+        if (compareResult == 0){
+            return true;
+        }else if (compareResult < 0){
+            return contains(node.left, e);
+        }else {
+            return contains(node.right, e);
+        }
     }
 
 
@@ -132,10 +153,29 @@ public class AVLTree<K extends Comparable<K>, V> {
         if (Math.abs(balanceFactor) > 1)
             System.out.println("unbalanced : " + balanceFactor);
 
-        //平衡维护
+        //平衡维护 LL
         if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0){
             //右旋转
+            return rightRotate(node);
 
+        }
+
+        //RR
+        if (balanceFactor < -1 &getBalanceFactor(node.right) <= 0){
+            //左旋转
+            return leftRotate(node);
+        }
+
+        //LR
+        if (balanceFactor >1 && getBalanceFactor(node.left) < 0){
+            node.left = leftRotate(node);
+            return rightRotate(node);
+
+        }
+
+        if (balanceFactor<-1 && getBalanceFactor(node.left) > 0){
+            node.right = rightRotate(node);
+            return leftRotate(node);
 
         }
 
@@ -163,5 +203,56 @@ public class AVLTree<K extends Comparable<K>, V> {
 
     }
 
+    //左旋转
+    private Node leftRotate(Node y){
+        Node x = y.right;
+        Node T2 = x.left;
+
+        x.left = y;
+        y.right = T2;
+
+
+        //更新height
+        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+        x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
+
+
+        return x;
+
+
+    }
+
+
+    public void set(K key, V value){
+
+
+    }
+
+    public V get(K key){
+        return null;
+    }
+
+    public void add(K key, V value){
+
+        add(root, key, value);
+    }
+
+    public static void main(String[] args) {
+        List<String> words = new ArrayList<>();
+
+        AVLTree<String, Integer> tree = new AVLTree<>();
+        for (String word: words){
+            if (tree.contains(word))
+                tree.set(word,tree.get(word) + 1);
+
+            else
+                tree.add(word, 1);
+
+        }
+
+
+
+
+    }
 
 }
