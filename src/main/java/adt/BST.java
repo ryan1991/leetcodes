@@ -1,4 +1,4 @@
-package adt.bst;
+package adt;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -46,7 +46,7 @@ public class BST<E extends Comparable<E>> {
 
 
     /**
-     * 向以node为根节点的二分搜索树红插入元素E,递归算法
+     * 向以node为根节点的二分搜索树插入元素E,递归算法
      * @param node
      * @param e
      */

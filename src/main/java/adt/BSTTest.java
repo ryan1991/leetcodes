@@ -1,4 +1,4 @@
-package adt.bst;
+package adt;
 
 public class BSTTest {
     public static void main(String[] args) {

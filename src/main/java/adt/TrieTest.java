@@ -1,4 +1,4 @@
-package adt.bst;
+package adt;
 
 public class TrieTest {
     public static void main(String[] args) {
