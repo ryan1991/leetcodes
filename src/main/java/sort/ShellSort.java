@@ -9,14 +9,7 @@ public class ShellSort implements Sort {
     @Override
     public void sort(Comparable[] source) {
 
-        int len = source.length;
-        if(len <= 1) return;
-
-
-
-
-
-
+        throw new UnsupportedOperationException("shell sort not implement");
 
 
     }

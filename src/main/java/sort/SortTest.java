@@ -8,8 +8,11 @@ public class SortTest {
 
 //        Sort sort = new SelectionSort();
 //        Sort sort = new BubbleSort();
-        Sort sort = new InsertionSort();
+//        Sort sort = new InsertionSort();
 
+//        Sort sort = new QuickSort();
+
+        Sort sort = new MergeSort();
         sort.sort(source);
 
 

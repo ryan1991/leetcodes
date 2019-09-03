@@ -8,6 +8,6 @@ public class HeapSort implements Sort {
 
     @Override
     public void sort(Comparable[] source) {
-
+        throw new UnsupportedOperationException("heap sort not implement");
     }
 }

@@ -9,9 +9,11 @@ public class QuickSort implements Sort {
     @Override
     public void sort(Comparable[] source) {
 
+        int len = source.length;
+        if (len <= 1)
+            return ;
 
-
-
+        quickSort(source, 0, source.length -1);
 
     }
 
@@ -28,7 +30,25 @@ public class QuickSort implements Sort {
     }
 
     private int partition(Comparable[] source, int l, int r) {
+        Comparable v = source[l];
 
-        return 0;
+        int j = l;
+        for (int i = l + 1; i <=r ; i++){
+            if (source[i].compareTo(v)< 0){
+                exch(source, j+1, i);
+                j++;
+
+            }
+
+        }
+
+        exch(source, l, j);
+
+        return j;
+
+
+
+
+
     }
 }
