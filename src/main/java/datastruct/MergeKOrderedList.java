@@ -42,9 +42,9 @@ public class MergeKOrderedList {
     }
 
 
-
-
-
+    /**
+     * 暴力法
+     */
     public static ListNode mergeKLists(ListNode[] lists) {
         int len = lists.length;
 
@@ -65,7 +65,7 @@ public class MergeKOrderedList {
             }
 
         }
-
+        //获取值再排序再重新创建链表
         nodes.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {

@@ -1,4 +1,4 @@
-package algorithm;
+package datastruct;
 
 
 import java.util.HashSet;
@@ -72,12 +72,3 @@ public class CycleList {
 
 }
 
-
-class ListNode {
-    int val;
-     ListNode next;
-     ListNode(int x) {
-         val = x;
-         next = null;
-      }
-}

@@ -16,6 +16,10 @@ public class MergeTwoOrderedList {
     }
 
 
+    /**
+     *
+     * 递归
+     */
     public ListNode mergeTwoLists(ListNode l1,  ListNode l2){
 
         if (l1 == null)
