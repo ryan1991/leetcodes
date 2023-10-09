@@ -47,6 +47,8 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 向以node为根节点的二分搜索树插入元素E,递归算法
+     *
+     * 注释部分不够好，递归终止条件臃肿
      * @param node
      * @param e
      */
@@ -74,7 +76,7 @@ public class BST<E extends Comparable<E>> {
 
 
     /**
-     * 向以node为根节点的二分搜索树红插入元素E,递归算法
+     * 向以node为根节点的二分搜索树插入元素E,递归算法
      * @param node
      * @param e
      */
@@ -198,7 +200,7 @@ public class BST<E extends Comparable<E>> {
     }
 
 
-    //中序遍历
+    //后序遍历
     private void postOrder(Node node){
         if (node==null)
             return;

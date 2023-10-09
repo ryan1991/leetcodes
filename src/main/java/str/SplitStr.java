@@ -17,6 +17,11 @@ public class SplitStr {
         split(src, sub);
         String[] efs = src.split(sub);
         System.out.println("官方实现：" + Arrays.toString(efs));
+
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        ClassLoader parent = systemClassLoader.getParent();
+
+
     }
 
 
