@@ -210,6 +210,41 @@ public class BST<E extends Comparable<E>> {
 
     }
 
+    /**
+     * 返回以node为根的二分搜索树最小值
+     * @return
+     */
+    public E minimum(){
+        if (size == 0)
+            throw new IllegalArgumentException("BST is empty");
+
+        return minimum(root).e;
+    }
+
+
+    /**
+     * 返回以node为根的二分搜索树最大值
+     * @return
+     */
+    private Node minimum(Node node){
+        if (node.left == null)
+            return node;
+        return minimum(node.left);
+    }
+
+
+    public E maximum(){
+        if (size == 0)
+            throw new IllegalArgumentException("BST is empty");
+        return maximum(root).e;
+    }
+
+    private Node maximum(Node root) {
+        if (root.right == null)
+            return root;
+
+        return maximum(root.right);
+    }
 
 
     @Override

@@ -1,6 +1,8 @@
 package adt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class MaxHeap<E extends Comparable<E>> {
 
@@ -11,6 +13,11 @@ public class MaxHeap<E extends Comparable<E>> {
     public MaxHeap(){
         this(DEFAULT_INITIAL_CAPACITY);
     }
+
+    public MaxHeap(E[] arr){
+        heapify(arr);
+    }
+
 
     public MaxHeap(int capacity){
         data = new ArrayList<>(capacity);
@@ -108,5 +115,28 @@ public class MaxHeap<E extends Comparable<E>> {
             data.set(i, data.get(j));
             data.set(j, t);
         }
+    }
+
+    /**
+     * 取出堆中最大元素，并且替换成元素e
+     * @param e
+     * @return
+     */
+    public E replace(E e){
+        E ret = findMax();
+        data.set(0, e);
+        siftDown(0);
+        return ret;
+    }
+
+    /**
+     * heapify方式初始化heap，比一个个add 速度快
+     * @param arr
+     */
+    private void heapify(E[] arr){
+        data = new ArrayList<>(arr.length);
+        Collections.addAll(data, arr);
+        for (int i = parent(arr.length - 1); i >= 0; i--)
+            siftDown(i);
     }
 }

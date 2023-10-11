@@ -26,6 +26,8 @@ public class BSTTest {
 
 //          bst.inOrder();
 //        bst.postOrder();
+        System.out.println("最小值："+ bst.minimum() + ", 最大值："+ bst.maximum());
+
     }
 
 }
