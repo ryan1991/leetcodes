@@ -12,7 +12,8 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] a = {8, 11, 15, 6, 9, 99};
+//        int[] a = {8, 11, 15, 6, 9, 99};
+        int[] a = {1,3,5,6};
         Arrays.sort(a);
         System.out.println(new BinarySearch().search(6, a));
 
@@ -34,6 +35,5 @@ public class BinarySearch {
         }
 
         return  - 1;
-
     }
 }
