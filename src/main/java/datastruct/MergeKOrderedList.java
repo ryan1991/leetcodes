@@ -4,6 +4,7 @@ package datastruct;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * 合并K个排序链表
@@ -35,10 +36,8 @@ public class MergeKOrderedList {
         list[2] = head3;
 
 
-        ListNode dummy =  mergeKLists(list);
-
-
-
+        ListNode dummy =  mergeKLists2(list);
+        System.out.println(dummy);
     }
 
 
@@ -88,5 +87,32 @@ public class MergeKOrderedList {
 
 
 
+    public static ListNode mergeKLists2(ListNode[] lists) {
+        if (lists == null)
+            return null;
+        if (lists.length == 1)
+            return lists[0];
+
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
+
+        for (ListNode head : lists){
+            if (head != null){
+                pq.add(head);
+            }
+        }
+
+        while (!pq.isEmpty()){
+            ListNode node = pq.poll();
+            if (node.next != null){
+                pq.add(node.next);
+            }
+            p.next = node;
+            p = p.next;
+        }
+        return dummy.next;
+    }
 
 }
